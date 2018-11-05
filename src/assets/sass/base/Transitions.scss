@@ -1,0 +1,6 @@
+.vue-modal-fade-enter-active, .vue-modal-fade-leave-active {
+  transition: opacity .3s;
+}
+.vue-modal-fade-enter, .vue-modal-fade-leave-to {
+  opacity: 0;
+}

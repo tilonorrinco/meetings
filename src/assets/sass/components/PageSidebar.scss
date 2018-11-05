@@ -1,0 +1,29 @@
+.page-sidebar {
+  &__section {
+    position: relative;
+    padding-bottom: 21px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+
+      height: 1px;
+
+      background-color: #ddd;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+
+      &:after {
+      display: none;
+      }
+    }
+  }
+  &__link {
+    cursor: pointer;
+  }
+}
