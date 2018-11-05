@@ -2,20 +2,15 @@
   <div class="page">
     <div class="page__header"></div>
     <div class="page__main">
-      <div class="pure-g">
-        <div class="pure-u-18-24">
-          <div class="page__content">
-            <page-info/>
-          </div>
-        </div>
 
-        <div class="pure-u-6-24">
-          <div class="page__sidebar">
-            <page-sidebar :links="sidebarLinks" @sidebarLinkClicked="handleSidebarLinkClick($event)"/>
-          </div>
-        </div>
-
+      <div class="page__content">
+        <page-info/>
       </div>
+
+      <div class="page__sidebar">
+        <page-sidebar :links="sidebarLinks" @sidebarLinkClicked="handleSidebarLinkClick($event)"/>
+      </div>
+
     </div>
 
     <div class="page__footer"></div>
@@ -57,12 +52,14 @@ export default {
         {id: 3, name: 'Создать встречу', component: 'PageAddMeeting'}
       ],
 
+      localStorage: null,
+
       isModalShown: false,
       modalComponentName: null
     }
   },
 
-  methods: {   
+  methods: { 
     init() {
       this.$store.commit('getLocalStorageData');
     },
@@ -80,8 +77,8 @@ export default {
 
   beforeMount() {
     this.init();
+    window.addEventListener('storage', this.init); //storage data sync in other tabs
   }
-
 }
 </script>
 <style src="../assets/sass/components/Page.scss" lang="scss"/>

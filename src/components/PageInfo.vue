@@ -2,7 +2,7 @@
   <div class="page-info">
     <h2 class="page-info__title">Встречи</h2>
 
-    <table class="pure-table pure-table-horizontal pure-table-striped page-info__table">
+    <table class="pure-table pure-table-horizontal pure-table-striped page-info__table" v-if="$store.state.meetings.length">
       <thead>
         <tr>
           <th>Имя</th>
@@ -29,6 +29,8 @@
         </tr>
       </tbody>
     </table>
+
+    <h3 v-else>Нет данных</h3>
   </div>
 </template>
 <script>
